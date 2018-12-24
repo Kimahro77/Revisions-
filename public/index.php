@@ -33,6 +33,12 @@ $router->map("GET", "/produits", function() {
     $controller->render("produits");
 }, "produits");
 
+// Route de la page produits
+$router->map("GET", "/produit/[i:id]", function($params) { 
+    $controller = new MainController;
+    $controller->render("produit", $params);
+}, "produit");
+
 
 // Méthode match: cherche une correspondance entre l'URL donnée et les routes définies
 // Renvoie les informations de la route trouvée ou FALSE si rien n'est trouvé
@@ -44,6 +50,6 @@ $match = $router->match();
 if ($match === FALSE) {
     echo "Page non trouvée";
 // Sinon, lancer la fonction qui permet d'afficher la page correspondante    
-}else {
-    call_user_func_array( $match['target'], $match['params'] );
+} else {
+    call_user_func( $match['target'], $match['params']);
 }

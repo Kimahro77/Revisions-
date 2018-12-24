@@ -1,0 +1,1 @@
+<h1>Produit n° <?= $params["id"];?> </h1>

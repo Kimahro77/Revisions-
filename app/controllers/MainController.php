@@ -5,7 +5,9 @@
 class MainController {
 
     // Affiche la page demandée
-    function render($name) {
+    function render($name, $params = "") {
+        dump($params);
+
         include __DIR__ . "/../views/header.php";
         include __DIR__ . "/../views/". $name .".php";
         include __DIR__ . "/../views/footer.php";
